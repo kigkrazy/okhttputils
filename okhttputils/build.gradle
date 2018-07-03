@@ -3,14 +3,14 @@ apply plugin: 'com.novoda.bintray-release'//添加
 
 
 android {
-    compileSdkVersion 23
+    compileSdkVersion 27
     buildToolsVersion '27.0.3'
 
     defaultConfig {
-        minSdkVersion 9
-        targetSdkVersion 23
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion 19
+        targetSdkVersion 27
+        versionCode 5
+        versionName "2.6.3"
     }
     buildTypes {
         release {
@@ -25,19 +25,18 @@ android {
 
 }
 
-
-task clearJar(type: Delete) {
-    delete 'build/outputs/okhttputils.jar'
-}
-
-task makeJar(type: Copy) {
-    from('build/intermediates/bundles/release/')
-    into('build/outputs/')
-    include('classes.jar')
-    rename ('classes.jar', 'okhttputils-2_6_2.jar')
-}
-
-makeJar.dependsOn(clearJar, build)
+//task clearJar(type: Delete) {
+//    delete 'build/outputs/okhttputils.jar'
+//}
+//
+//task makeJar(type: Copy) {
+//    from('build/intermediates/bundles/release/')
+//    into('build/outputs/')
+//    include('classes.jar')
+//    rename ('classes.jar', 'okhttputils-2_6_2.jar')
+//}
+//
+//makeJar.dependsOn(clearJar, build)
 
 
 
@@ -46,13 +45,18 @@ dependencies {
     api 'com.squareup.okhttp3:okhttp:3.10.0'
 }
 
-//添加
+
+apply plugin: 'com.novoda.bintray-release'
+//发布到
+//发布请执行
+//gradlew clean build bintrayUpload -PbintrayUser=BINTRAY_USERNAME -PbintrayKey=BINTRAY_KEY -PdryRun=false
 publish {
-    userOrg = 'hongyangandroid'//bintray.com用户名
-    groupId = 'com.zhy'//jcenter上的路径
+    repoName = 'reizxutils'
+    userOrg = 'kigkrazy'//bintray.com用户名
+    groupId = 'com.reizx'//jcenter上的路径
     artifactId = 'okhttputils'//项目名称
-    publishVersion = '2.6.2'//版本号
-    desc = 'Oh hi, this is a nice description for a project, right?'
+    publishVersion = android.defaultConfig.versionName//版本号
+    desc = 'an okhttp3 wapper utils'
     website = 'https://github.com/hongyangAndroid/okhttp-utils'
 }
 
