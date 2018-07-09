@@ -1,6 +1,6 @@
 # okhttp-utils
 
->由于个人原因，现已停止维护。
+>由于原作者已经停止维护，此处个人接手自己维护的一个库。
 
 对okhttp的封装类，okhttp见：[https://github.com/square/okhttp](https://github.com/square/okhttp).
 
