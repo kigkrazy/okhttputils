@@ -1,9 +1,9 @@
 package com.zhy.sample_okhttp;
 
+import android.app.Activity;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -29,7 +29,7 @@ import okhttp3.CookieJar;
 import okhttp3.MediaType;
 import okhttp3.Request;
 
-public class MainActivity extends AppCompatActivity
+public class MainActivity extends Activity
 {
 
     private String mBaseUrl = "http://192.168.31.242:8888/okHttpServer/";
