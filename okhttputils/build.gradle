@@ -10,7 +10,7 @@ android {
         minSdkVersion 15
         targetSdkVersion 27
         versionCode 5
-        versionName "2.6.4"
+        versionName "2.7.1"
     }
     buildTypes {
         release {
@@ -25,24 +25,10 @@ android {
 
 }
 
-//task clearJar(type: Delete) {
-//    delete 'build/outputs/okhttputils.jar'
-//}
-//
-//task makeJar(type: Copy) {
-//    from('build/intermediates/bundles/release/')
-//    into('build/outputs/')
-//    include('classes.jar')
-//    rename ('classes.jar', 'okhttputils-2_6_2.jar')
-//}
-//
-//makeJar.dependsOn(clearJar, build)
-
-
-
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
     api 'com.squareup.okhttp3:okhttp:3.10.0'
+    testImplementation 'junit:junit:4.12'
 }
 
 
