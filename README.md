@@ -8,7 +8,7 @@
 
 ## 用法
 ```
-compile 'com.reizx:okhttputils:2.6.4'
+compile 'com.reizx:okhttputils:2.7.1'
 ```
 	
 

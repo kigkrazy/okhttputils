@@ -35,7 +35,7 @@ dependencies {
 apply plugin: 'com.novoda.bintray-release'
 //发布到
 //发布请执行
-//gradlew clean build bintrayUpload -PbintrayUser=BINTRAY_USERNAME -PbintrayKey=BINTRAY_KEY -PdryRun=false
+//gradlew clean build bintrayUpload -PbintrayUser=kigkrazy -PbintrayKey=BINTRAY_KEY -PdryRun=false
 publish {
     repoName = 'reizxutils'
     userOrg = 'kigkrazy'//bintray.com用户名
