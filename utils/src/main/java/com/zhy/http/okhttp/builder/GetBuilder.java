@@ -6,10 +6,8 @@ import com.zhy.http.okhttp.utils.UrlUtils;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * Created by zhy on 15/12/14.

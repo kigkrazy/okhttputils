@@ -11,7 +11,7 @@ def targetSdkVersion = parent.ext.targetSdkVersion
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-
+    testCompile group: 'junit', name: 'junit', version: '4.12'
     //region 添加android.jar依赖
     Properties properties = new Properties()
     properties.load(project.rootProject.file('local.properties').newDataInputStream())
@@ -38,15 +38,15 @@ private boolean isGradle3() {
 
 // 上传jcenter的工具配置
 apply plugin: 'com.novoda.bintray-release'
-
-// 发布请执行：
-// gradlew clean build bintrayUpload -PbintrayUser=kigkrazy -PbintrayKey=${APIKey} -PdryRun=false
+//发布到
+//发布请执行
+//gradlew clean build bintrayUpload -PbintrayUser=kigkrazy -PbintrayKey=BINTRAY_KEY -PdryRun=false
 publish {
     repoName = 'reizxutils'
-    artifactId = 'andrutil'
-    groupId = 'com.reizx'
-    userOrg = 'kigkrazy'//bintray用户名
-    publishVersion = version
-    website = 'https://github.com/kigkrazy/andrutil'
-    desc = 'an android common utils collection'//描述，不重要
+    userOrg = 'kigkrazy'//bintray.com用户名
+    groupId = 'com.reizx'//jcenter上的路径
+    artifactId = 'okhttputils'//项目名称
+    publishVersion = version //版本号
+    desc = 'an okhttp3 wapper utils'
+    website = 'https://github.com/kigkrazy/okhttputils'
 }
