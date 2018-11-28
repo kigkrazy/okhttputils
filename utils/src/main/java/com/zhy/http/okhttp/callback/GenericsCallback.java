@@ -26,5 +26,4 @@ public abstract class GenericsCallback<T> extends Callback<T> {
         T bean = mGenericsSerializator.transform(string, entityClass);
         return bean;
     }
-
 }

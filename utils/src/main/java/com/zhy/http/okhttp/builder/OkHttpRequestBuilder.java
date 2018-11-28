@@ -2,6 +2,7 @@ package com.zhy.http.okhttp.builder;
 
 import com.zhy.http.okhttp.request.RequestCall;
 
+import java.net.Proxy;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -10,11 +11,12 @@ import java.util.Map;
  */
 public abstract class OkHttpRequestBuilder<T extends OkHttpRequestBuilder>
 {
-    protected String url;
-    protected Object tag;
-    protected Map<String, String> headers;
-    protected Map<String, String> params;
+    protected String url;//url
+    protected Object tag;//tag可以通过tag取消请求
+    protected Map<String, String> headers;//header
+    protected Map<String, String> params;//params
     protected int id;
+    protected Proxy proxy;//代理
 
     public T id(int id)
     {
@@ -48,6 +50,12 @@ public abstract class OkHttpRequestBuilder<T extends OkHttpRequestBuilder>
             headers = new LinkedHashMap<>();
         }
         headers.put(key, val);
+        return (T) this;
+    }
+
+    public T proxy(Proxy proxy)
+    {
+        this.proxy = proxy;
         return (T) this;
     }
 
