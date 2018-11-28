@@ -8,8 +8,8 @@ android {
         applicationId "com.zhy.sample_okhttp"
         minSdkVersion parent.ext.minSdkVersion
         targetSdkVersion parent.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        versionCode parent.ext.versionCode
+        versionName parent.ext.versionName
     }
     buildTypes {
         release {

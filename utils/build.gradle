@@ -6,7 +6,7 @@ apply plugin: 'import-aar'
 sourceCompatibility = "1.8"
 targetCompatibility = "1.8"
 
-version = parent.ext.version
+version = parent.ext.versionName
 def targetSdkVersion = parent.ext.targetSdkVersion
 
 dependencies {
