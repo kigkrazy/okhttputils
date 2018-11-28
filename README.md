@@ -384,6 +384,21 @@ protected void onDestroy()
 ```
 比如，当前Activity页面所有的请求以Activity对象作为tag，可以在onDestory里面统一取消。
 
+### 设置请求代理
+```
+Response response = OkHttpUtils
+        .get()
+        .url("http://2018.ip138.com/ic.asp")
+        .build()
+        .writeTimeOut(10000)//写超时时间
+        .readTimeOut(10000)//读超时时间
+        .connTimeOut(10000)//连接超时时间
+        .proxy(new Proxy(Proxy.Type.SOCKS, new InetSocketAddress("127.0.0.1", 1080)))//sock proxy
+        //.proxy(new Proxy(Proxy.Type.HTTP, new InetSocketAddress("127.0.0.1", 1080)))//http proxy
+        .execute();
+System.out.println("the ip addr : "  + new String(response.body().bytes(), "GB2312"));
+```
+
 ## 混淆
 
 ```

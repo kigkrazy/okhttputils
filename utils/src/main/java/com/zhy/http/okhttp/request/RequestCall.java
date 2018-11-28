@@ -3,7 +3,10 @@ package com.zhy.http.okhttp.request;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.Callback;
 
+import org.omg.CORBA.PRIVATE_MEMBER;
+
 import java.io.IOException;
+import java.net.Proxy;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.Call;
@@ -23,6 +26,7 @@ public class RequestCall {
     private long readTimeOut;
     private long writeTimeOut;
     private long connTimeOut;
+    private Proxy proxy;//代理
 
     private OkHttpClient clone;
 
@@ -45,18 +49,23 @@ public class RequestCall {
         return this;
     }
 
+    public RequestCall proxy(Proxy proxy) {
+        this.proxy = proxy;
+        return this;
+    }
+
     public Call buildCall(Callback callback) {
         request = generateRequest(callback);
 
-        if (readTimeOut > 0 || writeTimeOut > 0 || connTimeOut > 0) {
+        if (readTimeOut > 0 || writeTimeOut > 0 || connTimeOut > 0 || proxy != null) {
             readTimeOut = readTimeOut > 0 ? readTimeOut : OkHttpUtils.DEFAULT_MILLISECONDS;
             writeTimeOut = writeTimeOut > 0 ? writeTimeOut : OkHttpUtils.DEFAULT_MILLISECONDS;
             connTimeOut = connTimeOut > 0 ? connTimeOut : OkHttpUtils.DEFAULT_MILLISECONDS;
-
             clone = OkHttpUtils.getInstance().getOkHttpClient().newBuilder()
                     .readTimeout(readTimeOut, TimeUnit.MILLISECONDS)
                     .writeTimeout(writeTimeOut, TimeUnit.MILLISECONDS)
                     .connectTimeout(connTimeOut, TimeUnit.MILLISECONDS)
+                    .proxy(proxy)
                     .build();
 
             call = clone.newCall(request);

@@ -16,7 +16,6 @@ public abstract class OkHttpRequestBuilder<T extends OkHttpRequestBuilder>
     protected Map<String, String> headers;//header
     protected Map<String, String> params;//params
     protected int id;
-    protected Proxy proxy;//代理
 
     public T id(int id)
     {
@@ -50,12 +49,6 @@ public abstract class OkHttpRequestBuilder<T extends OkHttpRequestBuilder>
             headers = new LinkedHashMap<>();
         }
         headers.put(key, val);
-        return (T) this;
-    }
-
-    public T proxy(Proxy proxy)
-    {
-        this.proxy = proxy;
         return (T) this;
     }
 
