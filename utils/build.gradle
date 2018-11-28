@@ -27,6 +27,9 @@ dependencies {
     api 'com.squareup.okhttp3:okhttp:3.10.0'
 }
 
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
 
 private boolean isGradle3() {
     Pattern GRADLE_ACCEPTABLE_VERSIONS = Pattern.compile("4\\.\\d*|0\\.\\d*[1-9]\\d*\$")
