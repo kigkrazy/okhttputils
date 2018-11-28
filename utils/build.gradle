@@ -5,12 +5,14 @@ apply plugin: 'import-aar'
 
 sourceCompatibility = "1.8"
 targetCompatibility = "1.8"
-version = '3.0.1'
-def targetSdkVersion = 28
+
+version = parent.ext.version
+def targetSdkVersion = parent.ext.targetSdkVersion
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
+    //region 添加android.jar依赖
     Properties properties = new Properties()
     properties.load(project.rootProject.file('local.properties').newDataInputStream())
     def sdkDir = properties.getProperty('sdk.dir')
@@ -20,6 +22,8 @@ dependencies {
     } else {
         project.dependencies.add("compileOnly", files("${sdkDir}/platforms/android-${targetSdkVersion}/android.jar"))
     }
+    //endregion
+
     api 'com.squareup.okhttp3:okhttp:3.10.0'
 }
 
@@ -32,3 +36,17 @@ private boolean isGradle3() {
     return false
 }
 
+// 上传jcenter的工具配置
+apply plugin: 'com.novoda.bintray-release'
+
+// 发布请执行：
+// gradlew clean build bintrayUpload -PbintrayUser=kigkrazy -PbintrayKey=${APIKey} -PdryRun=false
+publish {
+    repoName = 'reizxutils'
+    artifactId = 'andrutil'
+    groupId = 'com.reizx'
+    userOrg = 'kigkrazy'//bintray用户名
+    publishVersion = version
+    website = 'https://github.com/kigkrazy/andrutil'
+    desc = 'an android common utils collection'//描述，不重要
+}

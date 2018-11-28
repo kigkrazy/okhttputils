@@ -28,4 +28,13 @@ allprojects {
         options.addStringOption('encoding', 'UTF-8')
         options.addStringOption('charSet', 'UTF-8')
     }
+
+    ext {
+        buildToolsVersion = "28.0.3"
+        minSdkVersion = 15
+        targetSdkVersion = 28
+        compileSdkVersion = 28
+        supportVersion = "28.0.0"
+        version = '3.0.1'
+    }
 }
