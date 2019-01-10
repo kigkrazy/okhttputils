@@ -178,6 +178,17 @@ OkHttpUtils
     .execute(new MyStringCallback());
 ```
 
+### Post bytes
+
+```java
+    OkHttpUtils
+            .postBytes()
+            .url(url)
+            .content("xxxx".getBytes())
+            .build()
+            .execute();
+```
+
 提交一个Gson字符串到服务器端，注意：传递JSON的时候，不要通过addHeader去设置contentType，而使用`.mediaType(MediaType.parse("application/json; charset=utf-8"))`.。
 
 ### Post File

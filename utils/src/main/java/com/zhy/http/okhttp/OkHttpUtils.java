@@ -3,6 +3,7 @@ package com.zhy.http.okhttp;
 import com.zhy.http.okhttp.builder.GetBuilder;
 import com.zhy.http.okhttp.builder.HeadBuilder;
 import com.zhy.http.okhttp.builder.OtherRequestBuilder;
+import com.zhy.http.okhttp.builder.PostBytesBuilder;
 import com.zhy.http.okhttp.builder.PostFileBuilder;
 import com.zhy.http.okhttp.builder.PostFormBuilder;
 import com.zhy.http.okhttp.builder.PostStringBuilder;
@@ -67,6 +68,10 @@ public class OkHttpUtils {
 
     public static PostStringBuilder postString() {
         return new PostStringBuilder();
+    }
+
+    public static PostBytesBuilder postBytes() {
+        return new PostBytesBuilder();
     }
 
     public static PostFileBuilder postFile() {
