@@ -8,6 +8,7 @@ import com.zhy.http.okhttp.builder.PostFileBuilder;
 import com.zhy.http.okhttp.builder.PostFormBuilder;
 import com.zhy.http.okhttp.builder.PostStringBuilder;
 import com.zhy.http.okhttp.callback.Callback;
+import com.zhy.http.okhttp.https.HttpsUtils;
 import com.zhy.http.okhttp.request.RequestCall;
 import com.zhy.http.okhttp.utils.Platform;
 
@@ -29,7 +30,17 @@ public class OkHttpUtils {
 
     public OkHttpUtils(OkHttpClient okHttpClient) {
         if (okHttpClient == null) {
-            mOkHttpClient = new OkHttpClient();
+            //默认支持无签名认证的https访问
+            /**
+             * mod 2019-4-30 16:39:48
+             * 默认支持不安全https访问
+             */
+            HttpsUtils.SSLParams sslParams = HttpsUtils.getSslSocketFactory(null, null, null);
+            mOkHttpClient = new OkHttpClient.Builder()
+                    .sslSocketFactory(sslParams.sSLSocketFactory, sslParams.trustManager)
+                    //其他配置
+                    .build();
+//            mOkHttpClient = new OkHttpClient();
         } else {
             mOkHttpClient = okHttpClient;
         }
