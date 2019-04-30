@@ -43,7 +43,8 @@ private boolean isGradle3() {
 apply plugin: 'com.novoda.bintray-release'
 //发布到
 //发布请执行
-//gradlew clean build bintrayUpload -PbintrayUser=kigkrazy -PbintrayKey=BINTRAY_KEY -PdryRun=false
+// 加上 -x test 跳过单元测试
+//gradlew clean build -x test bintrayUpload -PbintrayUser=kigkrazy -PbintrayKey=BINTRAY_KEY -PdryRun=false
 publish {
     repoName = 'reizxutils'
     userOrg = 'kigkrazy'//bintray.com用户名

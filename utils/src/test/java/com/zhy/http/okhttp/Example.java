@@ -18,8 +18,9 @@ public class Example {
                 .writeTimeOut(10000)//写超时时间
                 .readTimeOut(10000)//读超时时间
                 .connTimeOut(10000)//连接超时时间
-                .proxy(new Proxy(Proxy.Type.SOCKS, new InetSocketAddress("127.0.0.1", 1080)))
+//                .proxy(new Proxy(Proxy.Type.SOCKS, new InetSocketAddress("127.0.0.1", 1080)))
                 .execute();
+        assert response.body() != null;
         System.out.println("the ip addr : "  + new String(response.body().bytes(), "GB2312"));
     }
 }
