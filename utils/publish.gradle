@@ -14,7 +14,7 @@ publishing {
             if (!project.version.endsWith('-SNAPSHOT')) {
                 url "${mvnRepoUrl}"
             } else {
-                url "file://D:\\publish_lib\\reizx-repo\\"
+                url "${mvnSnapshotRepoUrl}"
             }
         }
     }
