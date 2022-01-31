@@ -1,12 +1,11 @@
 package com.zhy.http.okhttp.request;
 
-import android.text.TextUtils;
-
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.utils.Exceptions;
 
 import java.util.Map;
 
+import com.zhy.http.okhttp.utils.StrUtil;
 import okhttp3.MediaType;
 import okhttp3.Request;
 import okhttp3.RequestBody;
@@ -32,11 +31,11 @@ public class OtherRequest extends OkHttpRequest {
 
     @Override
     protected RequestBody buildRequestBody() {
-        if (requestBody == null && TextUtils.isEmpty(content) && HttpMethod.requiresRequestBody(method)) {
+        if (requestBody == null && StrUtil.isEmpty(content) && HttpMethod.requiresRequestBody(method)) {
             Exceptions.illegalArgument("requestBody and content can not be null in method:" + method);
         }
 
-        if (requestBody == null && !TextUtils.isEmpty(content)) {
+        if (requestBody == null && !StrUtil.isEmpty(content)) {
             requestBody = RequestBody.create(MEDIA_TYPE_PLAIN, content);
         }
 
