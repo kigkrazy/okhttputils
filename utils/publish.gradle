@@ -1,0 +1,21 @@
+apply plugin: 'maven-publish'
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            artifactId 'okhttputils'
+            from components.java
+            groupId 'com.reizx'
+            version project.version
+        }
+    }
+    repositories {
+        maven {
+            if (!project.version.endsWith('-SNAPSHOT')) {
+                url "${mvnRepoUrl}"
+            } else {
+                url "file://D:\\publish_lib\\reizx-repo\\"
+            }
+        }
+    }
+}

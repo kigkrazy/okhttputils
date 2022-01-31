@@ -54,3 +54,6 @@ publish {
     desc = 'an okhttp3 wapper utils'
     website = 'https://github.com/kigkrazy/okhttputils'
 }
+
+// 引入发布配置模块
+apply from: projectDir.absolutePath + File.separator + "publish.gradle"
