@@ -14,3 +14,8 @@
     # 预发布仓库信息，可以是云端仓库，可以是本地仓库
     mvnSnapshotRepoUrl=file://D:\\publish_lib\\reizx-repo\\
     ```
+3. 发布命令
+
+    ```
+    gradlew publish
+    ```
