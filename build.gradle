@@ -2,16 +2,15 @@
 
 buildscript {
     repositories {
-        jcenter()
+        maven{ url 'https://maven.aliyun.com/repository/google' }
+        maven{ url 'https://maven.aliyun.com/repository/jcenter' }
+        maven{url 'https://maven.aliyun.com/nexus/content/groups/public'}
         maven { url 'https://jitpack.io' }
-        google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.2.1'
+        classpath 'com.android.tools.build:gradle:3.6.0-rc01'
 
         // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
-        classpath 'com.novoda:bintray-release:0.9.1'
         classpath "com.github.nekocode:GradleImportAar:0.5"
     }
 }
@@ -35,7 +34,7 @@ allprojects {
         targetSdkVersion = 28
         compileSdkVersion = 28
         supportVersion = "28.0.0"
-        versionName = '3.2.4'
+        versionName = '3.2.5'
         versionCode = 14
     }
 }

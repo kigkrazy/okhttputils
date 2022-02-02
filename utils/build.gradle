@@ -11,7 +11,7 @@ def targetSdkVersion = parent.ext.targetSdkVersion
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testImplementation group: 'junit', name: 'junit', version: '4.12'
     //region 添加android.jar依赖
     Properties properties = new Properties()
     properties.load(project.rootProject.file('local.properties').newDataInputStream())
@@ -39,21 +39,19 @@ private boolean isGradle3() {
     return false
 }
 
-// 上传jcenter的工具配置
-apply plugin: 'com.novoda.bintray-release'
 //发布到
 //发布请执行
 // 加上 -x test 跳过单元测试
 //gradlew clean build -x test bintrayUpload -PbintrayUser=kigkrazy -PbintrayKey=BINTRAY_KEY -PdryRun=false
-publish {
-    repoName = 'reizxutils'
-    userOrg = 'kigkrazy'//bintray.com用户名
-    groupId = 'com.reizx'//jcenter上的路径
-    artifactId = 'okhttputils'//项目名称
-    publishVersion = version //版本号
-    desc = 'an okhttp3 wapper utils'
-    website = 'https://github.com/kigkrazy/okhttputils'
-}
+//publish {
+//    repoName = 'reizxutils'
+//    userOrg = 'kigkrazy'//bintray.com用户名
+//    groupId = 'com.reizx'//jcenter上的路径
+//    artifactId = 'okhttputils'//项目名称
+//    publishVersion = version //版本号
+//    desc = 'an okhttp3 wapper utils'
+//    website = 'https://github.com/kigkrazy/okhttputils'
+//}
 
 // 引入发布配置模块
 apply from: projectDir.absolutePath + File.separator + "publish.gradle"
