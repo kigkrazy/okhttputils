@@ -16,6 +16,10 @@ publishing {
             } else {
                 url "${mvnSnapshotRepoUrl}"
             }
+            credentials {
+                username = "${user}"
+                password = "${token}"
+            }
         }
     }
 }

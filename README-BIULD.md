@@ -13,6 +13,8 @@
     mvnRepoUrl=file://D:\\publish_lib\\reizx-repo\\
     # 预发布仓库信息，可以是云端仓库，可以是本地仓库
     mvnSnapshotRepoUrl=file://D:\\publish_lib\\reizx-repo\\
+    user={git用户名}
+    token={gittoken}
     ```
 3. 发布命令
 
