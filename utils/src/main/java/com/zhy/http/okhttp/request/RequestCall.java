@@ -3,7 +3,6 @@ package com.zhy.http.okhttp.request;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.Callback;
 
-import org.omg.CORBA.PRIVATE_MEMBER;
 
 import java.io.IOException;
 import java.net.Proxy;
