@@ -9,5 +9,4 @@
 /okhttp3*
 /.idea
 *.iml
-/utils/gradle.properties
 /utils/local.properties

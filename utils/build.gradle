@@ -2,11 +2,11 @@ import java.util.regex.Pattern
 
 apply plugin: 'java-library'
 apply plugin: 'import-aar'
+apply plugin: "com.vanniktech.maven.publish"
 
 sourceCompatibility = "1.8"
 targetCompatibility = "1.8"
 
-version = parent.ext.versionName
 def targetSdkVersion = parent.ext.targetSdkVersion
 
 dependencies {
@@ -38,20 +38,3 @@ private boolean isGradle3() {
     }
     return false
 }
-
-//发布到
-//发布请执行
-// 加上 -x test 跳过单元测试
-//gradlew clean build -x test bintrayUpload -PbintrayUser=kigkrazy -PbintrayKey=BINTRAY_KEY -PdryRun=false
-//publish {
-//    repoName = 'reizxutils'
-//    userOrg = 'kigkrazy'//bintray.com用户名
-//    groupId = 'com.reizx'//jcenter上的路径
-//    artifactId = 'okhttputils'//项目名称
-//    publishVersion = version //版本号
-//    desc = 'an okhttp3 wapper utils'
-//    website = 'https://github.com/kigkrazy/okhttputils'
-//}
-
-// 引入发布配置模块
-apply from: projectDir.absolutePath + File.separator + "publish.gradle"
